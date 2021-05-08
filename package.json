@@ -4,6 +4,7 @@
   "description": "My trading bot",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,7 +18,11 @@
   },
   "homepage": "https://github.com/Belfor-IT/TradingBot#readme",
   "dependencies": {
+    "axios": "^0.21.1",
     "body-parser": "^1.19.0",
+    "ccxt": "^1.49.21",
+    "coinbase-pro": "^0.9.0",
+    "coingecko-api": "^1.0.10",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
