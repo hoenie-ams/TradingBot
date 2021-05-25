@@ -8,7 +8,8 @@
 
  npm install coingecko-api
  npm install coinbase-pro
-
+ npm i commander --save  
+ 
  Debug mode 
  Npm install nodemon
  npm install jest
