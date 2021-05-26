@@ -12,7 +12,7 @@ function toDate(val) {
   }
 program
     .version('1.0.0')
-    .option('-i, --interval [interval]', 'interval in secondes for candlestick', 300)
+    .option('-i, --interval [interval]', 'interval in secondes for candlestick', 3600)
     .option('-p, --product [product]', 'Product identifier', 'BTC-EUR')
     .option('-s, --start [start]', 'Start time in unix seconds',toDate, yesterday)
     .option('-e, --end [end]', 'End time in unix seconds',toDate, now)
@@ -23,9 +23,14 @@ program
 
 
 const main = async function (){
-   const {start, end, interval, product} = program
-   //const options = program.opts();
+  // const {start, end, interval, product} = program
+  // const options = program.opts();
+   const product = program.opts().product
+   const start = program.opts().start
+   const end = program.opts().end
+   const interval = program.opts().interval
    //console.log(options);
+   //console.log(program.opts().interval)
    const service = new Historical({ 
      product, 
      start, 
@@ -33,7 +38,7 @@ const main = async function (){
      interval
     })
   const data = await service.getData()
-     console.log(data)
+    console.log(data)
 
  
 }
