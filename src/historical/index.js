@@ -1,21 +1,13 @@
 const CoinbasePro = require('coinbase-pro')
 const Candlestick = require('../models/candlestick')
 
-//time error 
-const now = new Date()
-const yesterday = new Date(now.getTime() - (24 * 60 * 60 * 1e3))
-function toDate(val) {
-    return new Date(val * 1e3)
-  }
-
-
 
 function timeout(ms) {
   return new Promise(resolve => setTimeout(resolve, ms))
 }
 
 class historicalService{
-    constructor({start = yesterday, end = now, interval = 300, product = 'BTC-EUR'}){
+    constructor({start, end, interval, product}){
         this.client = new CoinbasePro.PublicClient()
         this.product = product
         this.start = start
