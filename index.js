@@ -1,9 +1,9 @@
-
-//const commander = require('commander')
-//const program = new commander.Command()
 const program = require('commander')
-const Historical = require('./src/historical/index.js')
+const Backtester = require('./src/backtester')
+//const Historical = require('./src/historical/index.js')
 const config = require('./configuration')
+const SimpleStrategy = require('./src/strategy/simple')
+const Strategy = require('./src/strategy/strategy')
 
 const now = new Date()
 const yesterday = new Date(now.getTime() - (24 * 60 * 60 * 1e3))
@@ -23,27 +23,20 @@ program
 
 
 const main = async function (){
-  // const {start, end, interval, product} = program
-  // const options = program.opts();
-   const product = program.opts().product
-   const start = program.opts().start
-   const end = program.opts().end
-   const interval = program.opts().interval
-   //console.log(options);
-   //console.log(program.opts().interval)
-   const service = new Historical({ 
-     product, 
-     start, 
-     end, 
-     interval
-    })
-  const data = await service.getData()
-    console.log(data)
+  const start = program.opts().start
+  const end = program.opts().end
+  const product = program.opts().product
+  const interval = program.opts().interval
 
- 
+
+  const tester = new Backtester({
+    start, end, product, interval, strategyType: strategy
+  })
+
+  await tester.start()
+
 }
 
-
 main()
-console.log('We are live');
+//console.log('We are live');
 
