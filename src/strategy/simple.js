@@ -1,4 +1,3 @@
-/* Dont use this Strategy its just example */
 const Strategy = require('./strategy')
 
 class SimpleStrategy extends Strategy {
