@@ -1,46 +1,40 @@
 const Candlestick = require('../models/candlestick')
-const Historical = require('../historical')
-const { Simple  }  = require('../strategy')
+const randomstring = require('randomstring')
+const colors = require('colors/safe')
+const Runner = require('../runner')
 
-class Backtester{
-    constructor ({start,end,interval,product}){
-        this.product = product
-        this.start = start
-        this.end = end
-        this.interval = interval
-        this.historical = new Historical({
-            start,end,interval,product
+class Backtester extends Runner {
+  async start() {
+    try {
+      const history = await this.historical.getData()
+
+      await Promise.all(history.map((stick, index) => {
+        const sticks = history.slice(0, index + 1)
+        return this.strategy.run({
+          sticks, time: stick.startTime
         })
-    }
-    async start(){
-        try {
-            const history = this.historical.getData()
-            this.strategy = simple({
-                onBuySignal: (x) => { this.onBuySignal(x) },
-                onSellSignal: (x) => { this.onSellSignal(x) }
-            })
+      }))
 
-            Promise.all(history.map((stick, index) => {
-                const sticks = history.slice(0, index + 1)
-                return this.strategy.run({
-                    sticks, time: stick.startTime
-                })
-            }))
-            
-        } catch (error) {
-            console.log(error)
-            
-        }
-    }
-    async onBuySignal({price, time}){
-        console.log('BUY SIGNAL')
+      this.printPositions()
+      this.printProfit()
 
-
+    } catch (error) {
+      console.log(error)
     }
-    async onSellSignal({price, size, time}){
-        console.log('SELL SIGNAL')
+  }
 
-    }
+  async onBuySignal({ price, time }) {
+    const id = randomstring.generate(20)
+    this.strategy.positionOpened({
+      price, time, size: 1.0, id
+    })
+  }
+
+  async onSellSignal({ price, size, time, position }) {
+    this.strategy.positionClosed({
+      price, time, size, id: position.id
+    })
+  }
 }
 
 module.exports = Backtester
