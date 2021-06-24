@@ -2,6 +2,8 @@
     "Coinbase_API_KEY": "",
     "Coinbase_API_SECRET": "",
     "Coinbase_API_PASSPHRASE": "",
-    "Coinbase_API_URL": "",
-    "Coinbase_API_SANDBOX_URL": "https://api-public.sandbox.pro.coinbase.com"
-}
+    "Coinbase_API_URL": "https://api-public.sandbox.pro.coinbase.com",
+    "Coinbase_API_SANDBOX_URL": "https://api-public.sandbox.pro.coinbase.com",
+    "Coinbase_WS_URL":  "wss://ws-feed-public.sandbox.pro.coinbase.com"
+  }
+  
