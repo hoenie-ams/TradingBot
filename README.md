@@ -1,3 +1,4 @@
+Readme later aanpassen.
 # TradingBot
  Installation steps: 
  Npm install dotenv  (manage api keys)
