@@ -6,6 +6,7 @@ const Runner = require('../runner')
 class Backtester extends Runner {
   async start() {
     try {
+      console.log(this.strategy)
       const history = await this.historical.getData()
 
       await Promise.all(history.map((stick, index) => {
