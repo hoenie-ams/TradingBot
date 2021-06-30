@@ -11,7 +11,7 @@ class SimpleMACD extends Strategy {
     const indicator = tulind.indicators.macd.indicator
 
     const results = await indicator([prices],
-                                    [12, 26, 9])
+                                    [shortPeriod, longPeriod, signalPeriod])
 
     const histogram = results[2]
     const signal = results[1]
@@ -43,7 +43,12 @@ class SimpleMACD extends Strategy {
           if (p.enter.price * 1.01 < price) {
             this.onSellSignal({ price, time, size: p.enter.size, position: p })
           }
-        }
+        } //else {
+          //Stoploss alleen je maakt nu meer verlies als die aanstaat
+          //if  (p.enter.price * 0.95 > price){
+            //  this.onSellSignal({price, time, size: p.enter.size, position: p})
+          //}
+        //}
       })
     }
   }
