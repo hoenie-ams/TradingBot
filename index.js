@@ -9,6 +9,7 @@ const now = new Date()
 const yesterday = new Date(now.getTime() - (24 * 60 * 60 * 1e3))
 
 
+
 function toDate(val) {
   return new Date(val * 1e3)
 }
@@ -44,5 +45,5 @@ const main = async function() {
     await tester.start()
   }
 }
-
+console.log()
 main()

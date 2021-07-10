@@ -1,6 +1,9 @@
 const tulind = require('tulind')
 var moment = require('moment');
-Results = moment('24-06-2021 21:00:00', 'DD-MM-YYYY HH:mm:ss').valueOf()
-console.log(Results)
+start = moment('01-06-2021 12:00:00', 'DD-MM-YYYY HH:mm:ss').valueOf()
+console.log("start",start)
 
-console.log(tulind.indicators.macd)
+einde = moment('02-07-2021 12:00:00', 'DD-MM-YYYY HH:mm:ss').valueOf()
+console.log("einde", einde)
+
+//console.log(tulind.indicators.macd)
