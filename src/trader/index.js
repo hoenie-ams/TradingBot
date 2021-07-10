@@ -27,6 +27,7 @@ class Trader extends Runner {
   }
 
   async onBuySignal({ price, time }) {
+    console.log(`BUY on this price:  ${price}`)
     const result = await this.broker.buy({ funds: this.funds, price })
     if (!result) { return }
     const id = randomstring.generate(20)
@@ -36,6 +37,7 @@ class Trader extends Runner {
   }
 
   async onSellSignal({ price, size, time, position }) {
+    console.log(`Sell on this price  ${price}`)
     const result = await this.broker.sell({ size, price })
     if (!result) { return }
     this.strategy.positionClosed({

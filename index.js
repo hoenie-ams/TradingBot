@@ -20,7 +20,6 @@ program.version('1.0.0')
   .option('-p, --product [product]', 'Product identifier', 'BTC-EUR')
   .option('-s, --start [start]', 'Start time in unix seconds',
           toDate, yesterday)
-
   .option('-e, --end [end]', 'End time in unix seconds', toDate, now)
   .option('-t, --strategy [strategy]', 'Strategy Type')
   .option('-r, --type [type]', 'Run type')
