@@ -38,11 +38,14 @@ R - Renamed (The file has been renamed)
 S - Submodule (In repository exists another subrepository)
 
 PowerShell 
-Get unix time cmd "(Get-Date "22/07/2021 00:00:00" -uformat %s)"
+Get unix time cmd "(Get-Date "22/07/2021 00:00:00" -uformat %s)"dock
 
 # Docker 
 Building
 docker build -t "name" .
 
 Running 
-docker run --name "name" ""name
+docker run --name "name" "name"
+
+Stopping 
+docker stop "name"
