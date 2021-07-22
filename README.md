@@ -36,3 +36,13 @@ U - Untracked (The file is new or has been changed but has not been added to the
 C - Conflict (There is a conflict in the file)
 R - Renamed (The file has been renamed)
 S - Submodule (In repository exists another subrepository)
+
+PowerShell 
+Get unix time cmd "(Get-Date "22/07/2021 00:00:00" -uformat %s)"
+
+# Docker 
+Building
+docker build -t "name" .
+
+Running 
+docker run --name "name" ""name
