@@ -1,51 +1,52 @@
-Readme later aanpassen.
 # TradingBot
- Installation steps: 
- Npm install dotenv  (manage api keys)
- Npm install express (Fast, unopinionated, minimalist web framework for node)
- Npm install ccxt (CryptoCurrency eXchange Trading Library)
- npm install axios (Promise based HTTP client for the browser and node.js)
-
-
- npm install coingecko-api
- npm install coinbase-pro
- npm i commander --save  
+To get this Tradingbot running you need to fo the following: 
  
- Debug mode 
- Npm install nodemon
- npm install jest
+> Install NodeJS v9.11.2
+> Install git
+> Download Tradingbot 
+> install dependecies 
 
-REST API ENDPOINT URL
-https://api.pro.coinbase.com
+# Installing Nodejs 
+I used Nodejs  v9.11.2 when building and testing this. You could install the latest version of Nodejs but I'm not sure it will work. 
 
-Sandbox URLs
-When testing your API connectivity, make sure to use the following URLs.
-Website
-https://public.sandbox.pro.coinbase.com
-REST API
-https://api-public.sandbox.pro.coinbase.com
-Websocket Feed
-wss://ws-feed-public.sandbox.pro.coinbase.com
-FIX API
-tcp+ssl://fix-public.sandbox.pro.coinbase.com:4198
+# Installing git 
+As part of the installation, process git is used. 
 
-A - Added (This is a new file that has been added to the repository)
-M - Modified (An existing file has been changed)
-D - Deleted (a file has been deleted)
-U - Untracked (The file is new or has been changed but has not been added to the repository yet)
-C - Conflict (There is a conflict in the file)
-R - Renamed (The file has been renamed)
-S - Submodule (In repository exists another subrepository)
+#Downloading Tradingbot
+The recommended way of downloading this is by using git. Run this in a terminal: git clone git://github.com/Belfor-IT/TradingBot
+cd Tradingbot
+This will download the latest
+npm install --only=production
 
+#Starting Tradingbot 
+After all the above you can start tradingbot by running the following in your terminal:
+node index.js 
+This will start de paper trade 
+The other options you have: 
+'-i, --interval [interval]', 'Interval in seconds for candlestick',
+ '-p, --product [product]', 'Product identifier', 'BTC-EUR'
+'-s, --start [start]', 'Start time in unix seconds',
+'-e, --end [end]', 'End time in unix seconds',
+'-t, --strategy [strategy]', 'Strategy Type'
+'-r, --type [type]', 'Run type'
+'-f, --funds [funds]', 'Amount of money to use',
+'-l, --live', 'Run live'
+
+#settings 
+ Config.json is for your API keys
+ Create your strategy add it to the strategy folder. 
 PowerShell 
 Get unix time cmd "(Get-Date "22/07/2021 00:00:00" -uformat %s)"dock
 
 # Docker 
 Building
-docker build -t "name" .
+docker build -t "tradingbot" .
 
 Running 
-docker run --name "name" "name"
+docker run --name "tradingbot" "tradingbot" 
 
 Stopping 
-docker stop "name"
+docker stop "tradingbot"
+
+Running with your API keys
+docker run --name "tradingbot" -e "Coinbase_API_KEY=APIKEY" -e "Coinbase_API_SECRET=SERCET==/"  -e "Coinbase_API_PASSPHRASE=Password==/>."  "username/tradingbot"
