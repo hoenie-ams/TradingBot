@@ -51,6 +51,8 @@ The other options you have:
 >
 >'-l, --live', 'Run live'
 
+example: node .\index.js -s 1625097600 -t simple -f 500
+
 # Settings 
  Config.json is for your API keys
  
