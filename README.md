@@ -12,13 +12,13 @@ I used Nodejs  v9.11.2 when building and testing this. You could install the lat
 # Installing git 
 As part of the installation, process git is used. 
 
-#Downloading Tradingbot
+# Downloading Tradingbot
 The recommended way of downloading this is by using git. Run this in a terminal: git clone git://github.com/Belfor-IT/TradingBot
 cd Tradingbot
 This will download the latest
 npm install --only=production
 
-#Starting Tradingbot 
+# Starting Tradingbot 
 After all the above you can start tradingbot by running the following in your terminal:
 node index.js 
 This will start de paper trade 
@@ -32,7 +32,7 @@ The other options you have:
 '-f, --funds [funds]', 'Amount of money to use',
 '-l, --live', 'Run live'
 
-#settings 
+# Settings 
  Config.json is for your API keys
  Create your strategy add it to the strategy folder. 
 PowerShell 
